@@ -20,4 +20,12 @@ module NestedForm
     end
   rescue LoadError
   end
+
+  begin
+    require 'twitter-bootstrap-form-builder'
+    class MNE::TwitterBootstrapFormBuilder::FormBuilder < ActionView::Helpers::FormBuilder
+      include ::NestedForm::BuilderMixin
+    end
+  rescue LoadError
+  end
 end
